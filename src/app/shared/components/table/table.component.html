@@ -1,0 +1,20 @@
+<!-- Write table component code here -->
+<table>
+    <thead>
+        <tr *ngIf="let header of headers">
+            <th>{{header}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="records.length; else noData">
+            <tr *ngIf="let record of records">
+                <td>{{record}}</td>
+            </tr>
+        </ng-container>
+        <ng-template #noData>
+            <tr>
+                <td>{{"No Data Available"}}</td>
+            </tr>
+        </ng-template>
+    </tbody>
+</table>
